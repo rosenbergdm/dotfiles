@@ -1,0 +1,40 @@
+#!/usr/bin/env zsh
+# encoding: utf-8
+# 01_path
+
+# {{{ fpath
+
+  fpath=(~/.zsh/comp \
+         /Library/init/zsh/zshrc_local.d/site-functions \
+         /Library/init/zsh/zshrc.d/local-functions/opt \
+         /Library/init/zsh/zshrc.d/local-functions/darwin \
+         /Library/init/zsh/zshrc.d/local-functions/general
+         ~/.comps \
+         ~/src/zshfunctions)
+
+# }}} /fpath
+# {{{ path
+
+  path=(/usr/local/perlbrew/perls/current/bin
+        /xbin/bin \
+        /usr/bin \
+        /usr/local/bin \
+        /usr/local/texlive/2009/bin/universal-darwin \
+        /opt/subversion/bin \
+        /Developer/usr/bin \
+        $path )
+
+# }}} /path
+# {{{ manpath
+
+  manpath=($manpath \
+           /usr/share/man \
+           /usr/local/share/man \
+           /opt/local/share/man )
+  export MANSECT=3:2:9:8:1:5:4:7:6:n
+
+# }}} /manpath
+
+
+
+# vim: tw=78 ft=zsh encoding=utf-8 foldenable

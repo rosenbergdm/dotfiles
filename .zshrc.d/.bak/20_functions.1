@@ -1,0 +1,65 @@
+
+. /etc/zprofile
+. ~/.profile
+. /usr/local/bin/maildirs.sh
+
+. /usr/local/script/penn_functions.sh
+. $HOME/.zsh/set_compile_flags.zsh
+
+
+src ()
+{
+  autoload -U zrecompile
+  [ -f ~/.zshrc ] && zrecompile -p ~/.zshrc
+  [ -f ~/.zshenv ] && zrecompile -p ~/.zshenv
+  [ -f ~/.zcompdump ] && zrecompile -p ~/.zcompdump
+  [ -f ~/.zlogin ] && zrecompile -p ~/.zlogin
+  [ -f ~/.zlogout ] && zrecompile -p ~/.zlogout
+  [ -f ~/.zprofile ] && zrecompile -p ~/.zprofile
+  [ -f ~/.zshrc.zwc.old ] && rm -f ~/.zshrc.zwc.old
+  [ -f ~/.zshenv.zwc.old ] && rm -f ~/.zshenv.zwc.old
+  [ -f ~/.zcompdump.zwc.old ] && rm -f ~/.zcompdump.zwc.old
+  [ -f ~/.zlogin.zwc.old ] && rm -f ~/.zlogin.zwc.old
+  [ -f ~/.zlogout.zwc.old ] && rm -f ~/.zlogout.zwc.old
+  [ -f ~/.zprofile.zwc.old ] && rm -f ~/.zprofile.zwc.old
+}
+
+ff () {
+# ff x find file named x
+  find . -name $1 -print
+}
+files () {
+# files x => list files in x
+  find $1 -type f -print
+}
+line () {
+# line 5 file => show line 5 of file
+  sed -n "$1 p" $2
+}
+# ll () {
+#   ls -lag $* | more
+# }
+term () {
+  setopt noglob;
+  unset TERMCAP;
+  eval `tset -s -I -Q - $*`
+}
+word () {
+# Grep thru dictionary
+  grep $* /usr/share/dict/web2
+}
+wordcount () {
+# Histogram words
+  (cat $* | tr -s ' .,;:?!()[]"' '\012' | cat -n | tail -1 | awk '{print $1}')
+}
+runHaskTagsVim() {
+    # use --etags instead of --ctags for emacs
+    hasktags --ignore-close-implementation --ctags `find . -type f -name \"*.*hs\"`; sort tags
+}
+
+
+# for fname in $(ls $HOME/Library/init/zsh/zshrc_local.d/site-functions/*.zsh); do
+#    . ${fname}
+# done
+
+# vim: tw=78 ft=zsh encoding=utf-8 foldenable

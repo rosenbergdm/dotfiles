@@ -1,0 +1,21 @@
+#!/bin/zsh -f
+
+# Make an image file transparent, saving a backup.
+
+if [[ $(which convert)  == *not\ found* ]];then
+    print "Cannot find ImageMagick convert command"
+    return 1
+fi 
+
+foreach imagefile in "$@"
+    cp $imagefile $imagefile.bak
+    convert -transparent white $imagefile /tmp/$imagefile
+    cp /tmp/$imagefile $PWD/$imagefile   
+end
+return $?
+
+##  Source: ZSH-templates-OSX Version: 2.0.0
+## 	/Library/init/zsh/zshrc.d/local-functions/general
+##	http://code.google.com/p/zsh-templates-osx/
+
+# vim: ft=zsh

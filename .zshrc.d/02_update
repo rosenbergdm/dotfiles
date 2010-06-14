@@ -1,0 +1,18 @@
+#!/usr/bin/env zsh
+# encoding: utf-8
+# 
+# 02_update
+
+
+_soft_cabal_target=$(ls -l ~/.cabal | awk '{print $11}')
+if [[ "${_soft_cabal_target}" == "/var/root/.cabal.macports" ]]; then
+    print "Selecting GHC version ${RED}6.10.4 \(macports\)${RESET} for this session.\n";
+    # export PATH=/opt/local/bin:$PATH
+elif [[ "${_soft_cabal_target}" == "/var/root/.cabal.system" ]]; then
+    print "Selecting GHC version ${RED}6.12.1 \(system\)${RESET} for this session.\n";
+    # export PATH=/usr/local/bin:/usr/bin:$PATH
+else
+    print "${RED}Error selecting GHC version.${RESET}  Symbolic link ~/.cabal not recognized.\n";
+fi
+
+# vim: tw=78 ft=zsh encoding=utf-8 foldenable

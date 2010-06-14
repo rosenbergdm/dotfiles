@@ -1,0 +1,52 @@
+#!/usr/bin/env zsh
+# encoding: utf-8
+#
+# 10_environment
+
+# {{{ Application specific
+  export RHOME="/Library/Frameworks/R.framework/Versions/Current/Resources"
+  export EDITOR=/usr/local/bin/vim
+  export PAGER='less -X -M'
+  export DROPIO_KEY=a3371c19b2c1165dad868bcb9aa9ff50c3e0d9c7
+  export ZSHDIR=$HOME/.zsh
+  export APACHEDIR=/opt/local/apache2
+  export WWWHOME=/var/www
+
+  export LESSOPEN="| /usr/local/bin/src-hilite-lesspipe.sh %s"
+  export LESS=' -R '
+
+# }}} /Application specific
+
+# {{{ Miscellaneous
+  fignore=(.o .c~ .old .pro)
+  export DIRSTACKSIZE=50
+
+# }}} /Miscellaneous
+
+
+# {{{ Colors
+  GREEN='\033[92m'
+  RED='\033[91m'
+  BLUE='\033[34m'
+  YELLOW='\033[33m'
+  ORANGE='\033[35m'
+  GREY='\033[90m'
+  CYAN='\033[36m'
+  RESET='\033[0m'
+  export GREEN RED BLUE YELLOW ORANGE GREY CYAN RESET
+
+  eval `gdircolors`
+  eval `locale`
+
+# }}} /Colors
+
+# {{{ Unicode & Locale
+  export LANG=en_US.UTF-8
+  export LC_ALL=en_US.UTF-8
+  export LC_CTYPE=en_US.UTF-8
+  export TERMINFO=$HOME/.terminfo
+
+# }}} /Unicode & Locale
+
+
+# vim: tw=78 ft=zsh encoding=utf-8 foldenable

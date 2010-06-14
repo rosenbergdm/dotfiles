@@ -1,0 +1,12 @@
+#!/bin/zsh -f
+
+# envgrep: grep the output of set
+function envgrep { set | grep -i --binary-files=text "$1" | grep -v "\(_c\omps\|p\orts\)"; }
+
+
+
+##  Source: ZSH-templates-OSX Version: 2.0.0
+## 	/Library/init/zsh/zshrc.d/local-functions/general
+##	http://code.google.com/p/zsh-templates-osx/
+
+# vim: ft=zsh

@@ -1,0 +1,53 @@
+! Set modification keys
+! left control = control
+! left 'option' = alt
+! left 'command' = mod4
+! caps lock = mode_switch
+! right command = meta
+! right option = alt
+
+
+
+clear Mod1
+clear Mod2
+clear Mod3
+clear Mod4
+clear Mod4
+clear Mod5
+clear Lock
+clear Control
+
+! Left Control Key
+
+keycode 67 = Control_L
+add Control = Control_L
+
+
+! Left Option Key
+
+keycode 66 = Alt_L
+add Mod2 = Alt_L
+
+
+! Left Command Key
+
+keycode 63 = Meta_L
+add Mod1 = Meta_L
+
+
+! Right Command Key
+
+keycode 71 = Meta_R
+add Mod4 = Meta_R
+
+
+! Right Option Key
+
+keycode 69 = Alt_R
+add Mod5 = Alt_R
+
+! Caps Lock Key
+
+keycode 65 = Mode_switch
+
+

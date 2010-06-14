@@ -1,0 +1,49 @@
+#!/usr/bin/env zsh
+# encoding: utf-8
+#
+# 05_options
+
+# {{{ Miscellaneous
+  limit -s coredumpsize 0
+
+# }}} /Miscellaneous
+
+# {{{ ZSH Options
+  # General
+    setopt   BASH_AUTO_LIST NO_BEEP CLOBBER
+
+  # Job Control
+    setopt   CHECK_JOBS NO_HUP
+
+  # History
+    setopt   INC_APPEND_HISTORY
+    setopt   EXTENDED_HISTORY HIST_IGNORE_DUPS HIST_FIND_NO_DUPS
+    setopt	 EXTENDED_HISTORY HIST_EXPIRE_DUPS_FIRST
+    setopt   HIST_REDUCE_BLANKS HIST_SAVE_NO_DUPS
+    setopt   PRINT_EIGHT_BIT
+    setopt   multios
+    setopt   auto_param_keys
+    setopt   auto_param_slash
+    setopt   auto_remove_slash
+
+  # Stay compatible to sh and IFS
+    setopt	 SH_WORD_SPLIT
+
+  # miscellanous
+    setopt   recexact longlistjobs
+    setopt   autoresume pushdsilent
+    setopt   extendedglob
+    setopt   autopushd pushdminus
+    unsetopt mailwarning
+    unsetopt HUP autoparamslash
+    setopt   BG_NICE
+
+    setopt   notify globdots
+    setopt   INTERACTIVE_COMMENTS
+
+# }}} /ZSH Options
+
+
+
+
+# vim: tw=78 ft=zsh encoding=utf-8 foldenable

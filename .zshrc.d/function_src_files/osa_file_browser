@@ -1,0 +1,16 @@
+#!/bin/zsh -f
+osascript <<-eof
+tell app "Finder"
+     activate
+     set f to POSIX path of ((choose file with prompt \
+     "Select a file:\
+       $Example") as string) 
+     end
+eof
+
+
+##  Source: ZSH-templates-OSX Version: 2.0.0
+## 	/Library/init/zsh/zshrc.d/local-functions/darwin
+##	http://code.google.com/p/zsh-templates-osx/
+
+# vim: ft=zsh

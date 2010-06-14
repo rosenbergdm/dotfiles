@@ -1,0 +1,16 @@
+#!/bin/zsh -f
+
+# invoke tidy to do in-place cleanup and conversion to xhtml
+
+if [[ "$@":e == xml ]];then
+    command tidy -m -xml   "$@"
+else
+    command tidy -m -asxml   "$@"
+fi
+
+
+##  Source: ZSH-templates-OSX Version: 2.0.0
+## 	/Library/init/zsh/zshrc.d/local-functions/general
+##	http://code.google.com/p/zsh-templates-osx/
+
+# vim: ft=zsh

@@ -1,0 +1,15 @@
+#!/bin/zsh -f 
+
+
+# whichre: search for commands using regular expressions
+
+
+command echo $PATH | awk 'BEGIN{ RS = ":" } { print }' | xargs ls | grep "$1";
+
+
+
+##  Source: ZSH-templates-OSX Version: 2.0.0
+## 	/Library/init/zsh/zshrc.d/local-functions/general
+##	http://code.google.com/p/zsh-templates-osx/
+
+# vim: ft=zsh

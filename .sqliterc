@@ -1,0 +1,9 @@
+-- .sqliterc
+-- sqlite3 settings
+
+.mode columns
+.headers on
+.echo on
+
+
+-- vim: set syntax=sql --

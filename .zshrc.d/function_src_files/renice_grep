@@ -1,0 +1,15 @@
+#!/bin/zsh -f 
+
+
+# renice_grep: renice by string
+
+ proc=$( ps -auxww | grep -i "${2}" | grep -v "[p ]grep" | awk '{ print $2 }' );
+ renice "${1}" -p "$proc";
+
+
+
+##  Source: ZSH-templates-OSX Version: 2.0.0
+## 	/Library/init/zsh/zshrc.d/local-functions/general
+##	http://code.google.com/p/zsh-templates-osx/
+
+# vim: ft=zsh

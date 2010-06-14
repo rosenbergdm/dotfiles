@@ -1,0 +1,13 @@
+#!/bin/zsh -f 
+
+# sgrep: grep the output of set
+set | grep -i --binary-files=text "$1"
+
+
+
+
+##  Source: ZSH-templates-OSX Version: 2.0.0
+## 	/Library/init/zsh/zshrc.d/local-functions/general
+##	http://code.google.com/p/zsh-templates-osx/
+
+# vim: ft=zsh

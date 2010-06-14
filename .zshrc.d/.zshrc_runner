@@ -1,0 +1,18 @@
+#!/usr/bin/env zsh
+# encoding: utf-8
+# 
+# .zshrc_runner
+
+local RCDIR
+RCDIR=$HOME/.zshrc.d
+
+ZSHLOAD_DEBUG=1
+
+for fname in $(ls ${RCDIR}/??_*(^/)); do
+    if ! [[ -z "$ZSHLOAD_DEBUG" ]]; then
+        print "Processing ${${fname:t}//??_/}"
+    fi
+    source ${fname}
+done
+
+export PATH=/opt/local/Library/Frameworks/Python.Framework/Versions/2.6/bin:/usr/bin:/usr/local/bin:/xbin/bin:/usr/bin:/usr/local/bin:/opt/local/bin:$PATH

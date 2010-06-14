@@ -1,0 +1,14 @@
+#!/bin/zsh -f
+
+# short cut to zsh files
+
+ function zshf {
+   cd $ZDOT
+}  
+
+
+##  Source: ZSH-templates-OSX Version: 2.0.0
+## 	/Library/init/zsh/zshrc.d/local-functions/darwin
+##	http://code.google.com/p/zsh-templates-osx/
+
+# vim: ft=zsh

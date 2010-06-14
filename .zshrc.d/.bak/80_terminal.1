@@ -1,0 +1,26 @@
+
+case "$TERM" in
+  xterm*)
+    bindkey "\e[1~" beginning-of-line	# Home
+    bindkey "\e[4~" end-of-line		# End
+    bindkey '\e[3~' delete-char		# Del
+    bindkey '\e[2~' overwrite-mode	# Insert
+    unalias vim
+    alias vim=/usr/local/bin/vim\ -X
+    # precmd
+    # setprompt
+    ;;
+  rxvt*)
+    bindkey '\e[7~' beginning-of-line	# home
+    bindkey '\e[8~' end-of-line		# end
+    xset r rate 300 50
+    # export TERM="rxvt-unicode"
+    xset -b b off
+    xset b 0 0 0
+    xset -r 118
+    xmodmap ~/.Xmodmap
+    precmd
+    setprompt
+    ;;
+esac
+# vim: tw=78 ft=zsh encoding=utf-8 foldenable

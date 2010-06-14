@@ -1,0 +1,11 @@
+#!/usr/bin/env zsh
+# encoding: utf-8
+#
+# 26_history
+
+HISTSIZE=5000
+SAVEHIST=100000
+HISTFILE=~/.history
+
+
+# vim: tw=78 ft=zsh encoding=utf-8 foldenable

@@ -1,0 +1,13 @@
+#!/bin/zsh -f
+# dusize: use du to get filesizes and sum them in awk
+# functin dusize {
+ command du "$@" | command awk '{ fsize += $1 } END { print fsize/1024 " Megabytes" }'
+#}
+
+
+
+##  Source: ZSH-templates-OSX Version: 2.0.0
+## 	/Library/init/zsh/zshrc.d/local-functions/general
+##	http://code.google.com/p/zsh-templates-osx/
+
+# vim: ft=zsh

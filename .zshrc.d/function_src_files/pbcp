@@ -1,0 +1,10 @@
+#!/bin/zsh -f
+# pbcp: copy the output of a command to the clipboard and to stdout
+ eval "$* | tee /dev/tty | pbcopy"
+
+
+##  Source: ZSH-templates-OSX Version: 2.0.0
+## 	/Library/init/zsh/zshrc.d/local-functions/darwin
+##	http://code.google.com/p/zsh-templates-osx/
+
+# vim: ft=zsh

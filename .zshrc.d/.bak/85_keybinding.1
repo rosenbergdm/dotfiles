@@ -1,0 +1,81 @@
+
+bindkey -v
+autoload -U incremental-complete-word predict-on
+zle -N incremental-complete-word
+zle -N predict-on
+zle -N predict-off
+
+
+# Most important bindings
+
+bindkey -M viins '^K' vi-kill-line
+bindkey -M viins '^L' yank          # put back what we've yanked...
+bindkey -M viins '^Xh' _complete_help
+bindkey -M vicmd '^[[3~' delete-char
+bindkey '^XH' _history_complete_word
+
+bindkey '^Xi' incremental-complete-word
+bindkey '^Xp' predict-on
+bindkey '^X^P' predict-off
+bindkey '^X\t' _build_completion
+
+
+
+# bindkey "^[[3~" delete-char
+# bindkey '\eq' push-line-or-edit
+# bindkey '^p' history-search-backward
+# bindkey "^[[3A"  history-beginning-search-backward
+# bindkey "^[[3B"  history-beginning-search-forward
+# bindkey -s '^B' " &\n"
+
+# Another Esc key.
+bindkey -M viins '\C-@' vi-cmd-mode
+bindkey -M vicmd '\C-@' vi-cmd-mode
+
+# to delete characters beyond the starting point of the current insertion.
+bindkey -M viins '\C-h' backward-delete-char
+bindkey -M viins '\C-w' backward-kill-word
+bindkey -M viins '\C-u' backward-kill-line
+
+# undo/redo more than once.
+bindkey -M vicmd 'u' undo
+bindkey -M vicmd '\C-r' redo
+
+# history
+bindkey -M vicmd '/' history-incremental-search-backward
+bindkey -M vicmd '?' history-incremental-search-forward
+bindkey -M vicmd '^[k' history-beginning-search-backward
+bindkey -M vicmd '^[j' history-beginning-search-forward
+bindkey -M vicmd 'gg' beginning-of-history
+
+# modification
+bindkey -M vicmd 'gu' down-case-word
+bindkey -M vicmd 'gU' up-case-word
+bindkey -M vicmd 'g~' vi-oper-swap-case
+
+
+# alias gcabal="$(which cabal) install --with-haddock=$(which haddock) --haddock-option=--hoogle --haddockdir=/usr/doc/haddock --docdir=/usr/doc --htmldir=/usr/doc/html --enable-documentation --with-hscolour=$(which HsColour) --verbose=2"
+
+
+# Misc.  #{{{2
+
+bindkey -M vicmd '\C-t' transpose-chars
+bindkey -M viins '\C-t' transpose-chars
+bindkey -M vicmd '^[t' transpose-words
+bindkey -M viins '^[t' transpose-words
+
+# Disable - the default binding _history-complete-older is very annoying
+# whenever I begin to search with the same key sequence.
+bindkey -M viins -r '^[/'
+
+# Experimental: Alternate keys to the original bindings.
+bindkey -M viins '^[,' _history-complete-newer
+bindkey -M viins '^[.' _history-complete-older
+
+# Hot key to continue a Vim process from the previous pseudo-:suspend.
+# my-screen-to-other () { screen -X other; }
+# zle -N my-screen-to-other
+bindkey -M vicmd '^Z' my-screen-to-other
+bindkey -M viins '^Z' my-screen-to-other
+# vim: tw=78 ft=zsh encoding=utf-8 foldenable
+

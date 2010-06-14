@@ -1,0 +1,58 @@
+
+fpath=(~/.zsh/comp /Library/init/zsh/zshrc_local.d/site-functions /Library/init/zsh/zshrc.d/local-functions/opt /Library/init/zsh/zshrc.d/local-functions/darwin /Library/init/zsh/zshrc.d/local-functions/general /var/root/.comps /var/root/src/zshfunctions)
+
+GREEN='\033[92m'
+RED='\033[91m'
+BLUE='\033[34m'
+YELLOW='\033[33m'
+ORANGE='\033[35m'
+GREY='\033[90m'
+CYAN='\033[36m'
+
+
+RESET='\033[0m'
+export GREEN RED BLUE YELLOW ORANGE GREY CYAN RESET
+
+HISTSIZE=5000
+SAVEHIST=100000
+HISTFILE=~/.history
+DIRSTACKSIZE=20
+
+
+fignore=(.o .c~ .old .pro)
+
+
+export EDITOR=/usr/local/bin/vim
+# Unicode Locale
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+export LC_CTYPE=en_US.UTF-8
+export TERMINFO=$HOME/.terminfo
+
+# Manpath & Manualpage search order
+# export MANSECT=3:2:9:8:1:5:4:7:6:n
+
+
+export PATH=/usr/bin:/usr/local/bin:/usr/local/texlive/2009/bin/universal-darwin:/opt/subversion/bin:/Developer/usr/bin:$PATH
+export RHOME="/Library/Frameworks/R.framework/Versions/Current/Resources"
+export MANPATH=$MANPATH:/usr/share/man:/usr/local/share/man:/opt/local/share/man
+export XDG_CONFIG_HOME=/opt/local/etc/xdg 
+
+
+
+# Syntax highlight for less with 'source-highlite'
+PAGER='less -X -M'
+# export LESSOPEN="| /usr/local/bin/src-hilite-lesspipe.sh %s"
+# export LESS=' -R '
+
+# ---[ Alias Section ]-------------------------------------------------
+eval `gdircolors` #  2>& /dev/null | sed 's/:do=..;..://'
+eval `locale`
+# LS_COLORS='no=00:fi=00:di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:su=37;41:sg=30;43:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.gz=01;31:*.bz2=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.avi=01;35:*.fli=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.flac=01;35:*.mp3=01;35:*.mpc=01;35:*.ogg=01;35:*.wav=01;35:';
+# export LS_COLORS
+
+ZSHDIR=$HOME/.zsh
+
+export PATH=/xbin/bin:$PATH
+export DROPIO_KEY=a3371c19b2c1165dad868bcb9aa9ff50c3e0d9c7
+# vim: tw=78 ft=zsh encoding=utf-8 foldenable

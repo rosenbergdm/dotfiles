@@ -1,0 +1,12 @@
+#!/bin/zsh -f 
+
+# txtgrep: grep only text files
+
+command  grep -in "$1" `file "${2}"/* | egrep 'script|text' | awk -F: '{print $1}'`;
+
+
+##  Source: ZSH-templates-OSX Version: 2.0.0
+## 	/Library/init/zsh/zshrc.d/local-functions/general
+##	http://code.google.com/p/zsh-templates-osx/
+
+# vim: ft=zsh

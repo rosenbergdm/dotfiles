@@ -1,0 +1,186 @@
+!.Xdefaults
+
+xman*topBox:              	 false
+xman*bothShown:           	 true
+
+!enable 96dpi fonts
+Xft.dpi:                  	 96
+Xft.antialias:            	 true
+
+xpdf.viKeys:              	 true
+
+!xosview settings
+xosview*background:       	 black
+xosview*foreground:       	 Orange
+
+URxvt*depth:              	 24
+!URxvt*geometry:          	 179x51
+!URxvt*background:        	 Black
+!URxvt*foreground:        	 White
+!URxvt*background:        	 #1C1C1C
+!URxvt*foreground:        	 #B4B4B4
+URxvt*background:         	 #313031
+URxvt*foreground:         	 White
+URxvt*borderWidth:        	 1
+URxvt*visualBell:         	 true
+URxvt*inheritPixmap:      	 true
+!URxvt*reverseVideo:      	 true
+URxvt*insecure:           	 true
+rxvt*tintColor:           	 #dfdfdf
+rxvt*shading:             	 20!trans,0=opaque
+rxvt*fading:              	 10!termunfocus
+URxvt*font:               	 xft:terminus:size=14
+URxvt*scrollBar:          	 true
+URxvt*scrollBar_floating: 	 true
+URxvt*scrollBar_right:    	 false
+URxvt*scrollColor:        	 #000000
+URxvt*saveLines:          	 2000
+URxvt*termName:           	 rxvt-unicode
+URxvt*cursorColor:        	 #d8d8d8
+URxvt*colorBD:            	 red
+URxvt*colorUL:            	 yellow
+URxvt*urgentOnBell:       	 true
+URxvt*scrollTtyOutput:    	 false
+URxvt*scrollTtyKeypress:  	 true
+URxvt*meta8:              	 true
+
+
+!colors
+!(unknown)
+! URxvt*color0: #000000
+! URxvt*color7: #bebebe
+! URxvt*color8: #666666
+! URxvt*color9: #cf6171
+! URxvt*color10: #c5f779
+! URxvt*color11: #fff796
+! URxvt*color12: #4186be
+! URxvt*color13: #cf9ebe
+! URxvt*color14: #71bebe
+! URxvt*color15: #ffffff
+! !(1 is an option color in .Xdefaults)
+! URxvt*color1: #ffa2a5
+! !(2 is a resource color in .Xdefaults)
+! URxvt*color2: #bdb66b
+! !(3 is for def/return color in python)
+! URxvt*color3: #f7e78c
+! !(4 is for comments color in python)
+! URxvt*color4: #84cfef
+! !(5 is for import/from color in python)
+! URxvt*color5: #ce5d5a
+! !(6 is for function color in python)
+! URxvt*color6: #87ff87
+
+! ---| thayer (tango) |--- {{{
+! Black (not tango) + DarkGrey
+URxvt*color0:             #000000
+URxvt*color8:             #555753
+! DarkRed + Red
+URxvt*color1:             #ff6565
+URxvt*color9:             #ff8d8d
+! DarkGreen + Green
+URxvt*color2:             #93d44f
+URxvt*color10:            #78e758
+! DarkYellow + Yellow
+URxvt*color3:             #eab93d
+URxvt*color11:            #ffc123
+! DarkBlue + Blue
+URxvt*color4:             #204a87
+URxvt*color12:            #3465a4
+! DarkMangenta + Mangenta
+URxvt*color5:             #ce5c00
+URxvt*color13:            #f57900
+!DarkCyan + Cyan (both not tango)
+URxvt*color6:             #89b6e2
+URxvt*color14:            #46a4ff
+! LightGrey + White
+URxvt*color7:             #cccccc
+URxvt*color15:            #ffffff
+!}}}
+URxvt.modifier:           Mod4
+
+URxvt.perl-ext-common: default,tabbed,macosx-clipboard,overlay-osc,selection-popup
+URxvt.keysym.Mod1-c: perl:macosx-clipboard:copy
+URxvt.keysym.Mod1-v: perl:macosx-clipboard:paste
+! URxvt.perl-ext-common: default,tabbed
+
+
+! URxvt.keysym.M-C: perl:mark-and-yank:activate_mark_mode
+URxvt.cutchars: `"'()*,;<>[]{|}'"
+! URxvt.keysym.M-u: perl:mark-and-yank:activate_mark_url_mode
+! URxvt.keysym.M-c: perl:macosx-clipboard:copy
+! URxvt.keysym.M-v: perl:macosx-clipboard:paste
+URxvt.perl-lib: /Library/Perl/5.10.0/darwin-thread-multi-2level/auto,/var/root/.urxvt
+! URxvt.perl-ext: mark-and-yank,macosx-clipboard
+URxvt.urlLauncher: open
+
+
+!
+!XTerm*underLine: on
+XTerm*customization: -color
+!XTerm*visualBell: true
+XTerm*colorMode: on
+XTerm*colorBD: lightyellow
+!XTerm*colorBDMode: off
+XTerm*colorUL: yellow
+XTerm*colorULMode: on
+XTerm*dynamicColors: off
+XTerm*highlightSelection: true
+! XTerm*metaSendsEscape: true
+XTerm*metaSendsEscape: false
+! XTerm*eightBitInput: true
+XTerm*eightBitInput: false
+XTerm*eightBitOutput: true
+! Colorscheme based on the gvim colorscheme desert
+XTerm*background: #313031
+XTerm*foreground: White
+
+!colors
+!(unknown)
+XTerm*color0: #000000
+XTerm*color7: #bebebe
+XTerm*color8: #666666
+XTerm*color9: #cf6171
+XTerm*color10: #c5f779
+XTerm*color11: #fff796
+XTerm*color12: #4186be
+XTerm*color13: #cf9ebe
+XTerm*color14: #71bebe
+XTerm*color15: #ffffff
+
+!(1 is an option color in .Xdefaults)
+XTerm*color1: #ffa2a5
+
+!(2 is a resource color in .Xdefaults)
+XTerm*color2: #bdb66b
+
+!(3 is for def/return color in python)
+XTerm*color3: #f7e78c
+
+!(4 is for comments color in python)
+XTerm*color4: #84cfef
+
+!(5 is for import/from color in python)
+XTerm*color5: #ce5d5a
+
+!(6 is for function color in python)
+XTerm*color6: #87ff87
+
+!set the font, and fond size
+! this also uses a antialias/scalable font
+!xterm*faceName: Bitstream Vera Sans Mono
+xterm*faceName: Terminus
+xterm*faceSize: 12
+!xterm*font:     xft:terminus:pixelsize=18
+!xterm*font : -*-terminus-medium-*-*-*-12-*-*-*-*-*-iso8859-15
+
+!set the window geometry
+XTerm*geometry: 144x41
+XTerm*scrollBar: false
+
+
+!dzen2 defaults
+dzen2.font: xft:terminus:size=10
+dzen2.foreground:   grey70
+dzen2.background:   black
+
+
