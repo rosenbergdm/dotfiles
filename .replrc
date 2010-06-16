@@ -1,0 +1,38 @@
+package Devel::REPL::Profile::Default;
+
+use Moose;
+use namespace::clean -except => [ 'meta' ];
+
+with 'Devel::REPL::Profile';
+
+sub plugins {
+  qw(Colors Commands Completion DDS DumpHistory FancyPrompt FindVariable HistoryLexEnv Nopaste OutputCache PPI Packages Peek ReadLineHistory Refresh ShowClass Turtles);
+}
+# Interrupt NewlineHack Timing
+
+sub completions {
+  qw(CompletionDriver::Globals CompletionDriver::INC CompletionDriver::Keywords CompletionDriver::LexEnv CompletionDriver::Methods CompletionDriver::Turtles);
+}
+
+sub secondary {
+  qw(B::Concise MultLine::PPI);
+}
+
+sub apply_profile {
+  my ($self, $repl) = @_;
+  $repl->load_plugin($_) for $self->plugins;
+  $repl->load_plugin($_) for $self->completions;
+  $repl->load_plugin($_) for $self->secondary;
+}
+
+1;
+
+# Standard Plugins
+# Colors Commands Completion DDS DumpHistory FancyPrompt FindVariable History Interrupt LexEnv NewlineHack Nopaste OutputCache PPI Packages Peek ReadLineHistory Refresh ShowClass Timing Turtles 
+
+# Secondary Plugins
+# B::Concise
+# MultiLine::PPI
+
+# Completion Drivers
+# CompletionDriver::Globals CompletionDriver::INC CompletionDriver::Keywords CompletionDriver::LexEnv CompletionDriver::Methods CompletionDriver::Turtles 
