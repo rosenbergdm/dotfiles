@@ -2,17 +2,62 @@
 # encoding: utf-8
 #
 # 20_functions
-for dname in $(ls /usr/local/share/zsh/4.3.10-dev-1/functions | grep -v '\.'); do
-    fpath+=(/usr/local/share/zsh/4.3.10-dev-1/functions/${dname})
-    autoload -w /usr/local/share/zsh/4.3.10-dev-1/functions/${dname}
-done
-for dname in BSD Base Darwin Unix X Zsh; do
-    fpath+=(/usr/local/share/zsh/4.3.10-dev-1/functions/Completion/${dname})
-    autoload -w /usr/local/share/zsh/4.3.10-dev-1/functions/Completion/${dname}
-done
+
+# {{{ Darwin
+
+if [[ $systype == "Darwin" ]]; then
+
+  for dname in $(ls /usr/local/share/zsh/4.3.10-dev-1/functions | grep -v '\.'); do
+      fpath+=(/usr/local/share/zsh/4.3.10-dev-1/functions/${dname})
+      autoload -w /usr/local/share/zsh/4.3.10-dev-1/functions/${dname}
+  done
+  for dname in BSD Base Darwin Unix X Zsh; do
+      fpath+=(/usr/local/share/zsh/4.3.10-dev-1/functions/Completion/${dname})
+      autoload -w /usr/local/share/zsh/4.3.10-dev-1/functions/Completion/${dname}
+  done
 
 
-for dname in $HOME/.comps $HOME/src/zshfunctions; do
+  for dname in $HOME/.comps $HOME/src/zshfunctions; do
+      fpath+=($dname)
+      pushd $dname
+      for fname in $(ls _* 2> /dev/null ); do
+          autoload -U $fname
+      done
+      for fname in $(ls *.zsh 2> /dev/null ); do
+          source $fname
+      done
+      popd
+  done 2>/dev/null > /dev/null
+
+
+  . /etc/zprofile
+  . ~/.profile
+  . /usr/local/bin/maildirs.sh
+
+  . /usr/local/script/penn_functions.sh
+  . $HOME/.zsh/set_compile_flags.zsh
+
+  autoload -w "$HOME/.zshrc.d/function_src_files"
+
+  # for fname in $(ls $HOME/Library/init/zsh/zshrc_local.d/site-functions/*.zsh); do
+  #    . ${fname}
+  # done
+# }}}
+
+# {{{ Linux
+elif [[ $systype == "Linux" ]]; then
+
+  for dname in $(ls /usr/share/zsh-beta/functions | grep -v '\.'); do
+      fpath+=(/usr/share/zsh-beta/functions/${dname})
+      autoload -w /usr/share/zsh-beta/functions/${dname}
+  done
+
+  for dname in Base Debian Linux Unix X Zsh; do
+      fpath+=(/usr/share/zsh-beta/functions/Completion/${dname})
+      autoload -w /usr/share/zsh-beta/functions/Completion/${dname}
+  done
+
+  for dname in $HOME/.comps $HOME/src/zshfunctions; do
     fpath+=($dname)
     pushd $dname
     for fname in $(ls _* 2> /dev/null ); do
@@ -22,17 +67,22 @@ for dname in $HOME/.comps $HOME/src/zshfunctions; do
         source $fname
     done
     popd
-done 2>/dev/null > /dev/null
+  done 2>/dev/null > /dev/null
 
 
-. /etc/zprofile
-. ~/.profile
-. /usr/local/bin/maildirs.sh
+  for fname in $(ls /usr/local/src/dmr/zshfunctions); do
+    if ! $(head -n 1 "/usr/local/src/dmr/zshfunctions/${fname}" | grep "\#autoload"); then
+      autoload -U ${fname}
+    else
+      source "/usr/local/src/dmr/zshfunctions/${fname}"
+    fi
+  done
 
-. /usr/local/script/penn_functions.sh
-. $HOME/.zsh/set_compile_flags.zsh
+fi
+# }}}
+#
 
-autoload -w "$HOME/.zshrc.d/function_src_files"
+# {{{ General
 
 src ()
 {
@@ -83,10 +133,5 @@ runHaskTagsVim() {
     # use --etags instead of --ctags for emacs
     hasktags --ignore-close-implementation --ctags `find . -type f -name \"*.*hs\"`; sort tags
 }
-
-
-# for fname in $(ls $HOME/Library/init/zsh/zshrc_local.d/site-functions/*.zsh); do
-#    . ${fname}
-# done
 
 # vim: tw=78 ft=zsh encoding=utf-8 foldenable

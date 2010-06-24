@@ -6,6 +6,8 @@
 local RCDIR
 RCDIR=$HOME/.zshrc.d
 
+systype=$(uname)
+
 ZSHLOAD_DEBUG=1
 
 for fname in $(ls ${RCDIR}/??_*(^/)); do
@@ -15,4 +17,16 @@ for fname in $(ls ${RCDIR}/??_*(^/)); do
     source ${fname}
 done
 
-export PATH=/opt/local/Library/Frameworks/Python.Framework/Versions/2.6/bin:/usr/bin:/usr/local/bin:/xbin/bin:/usr/bin:/usr/local/bin:/opt/local/bin:$PATH
+if [[ $systype == "Linux" ]]; then
+    export PATH
+elif [[ $systype == "Darwin" ]]; then
+    export PATH=/opt/local/Library/Frameworks/Python.Framework/Versions/2.6/bin:/usr/bin:/usr/local/bin:/xbin/bin:/usr/bin:/usr/local/bin:/opt/local/bin:$PATH
+fi
+
+
+# Added to incorporate rvm use
+
+if [[ -s "$HOME/.rvm/scripts/rvm" ]]; then
+    source "$HOME/.rvm/scripts/rvm";
+fi
+

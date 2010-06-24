@@ -3,35 +3,64 @@
 # 01_path
 
 # {{{ fpath
+    if [[ $systype == "Darwin" ]]; then
+        fpath=(~/.zsh/comp \
+               /Library/init/zsh/zshrc_local.d/site-functions \
+               /Library/init/zsh/zshrc.d/local-functions/opt \
+               /Library/init/zsh/zshrc.d/local-functions/darwin \
+               /Library/init/zsh/zshrc.d/local-functions/general
+               ~/.comps \
+               ~/src/zshfunctions)
+    elif [[ $systype == "Linux" ]]; then 
+        fpath=(~/.zsh/comp \
+               /etc/zsh/init/zsh/zshrc.d/local-functions/general \
+               /etc/zsh/init/zsh/zshrc_local.d/site-functions \
+               /usr/share/zsh-beta/functions \
+               /usr/share/zsh-beta/functions/Completion \
+               /usr/local/share/zsh-beta/site-functions \
+               /usr/local/src/dmr/zshfunctions )
+    else
 
-  fpath=(~/.zsh/comp \
-         /Library/init/zsh/zshrc_local.d/site-functions \
-         /Library/init/zsh/zshrc.d/local-functions/opt \
-         /Library/init/zsh/zshrc.d/local-functions/darwin \
-         /Library/init/zsh/zshrc.d/local-functions/general
-         ~/.comps \
-         ~/src/zshfunctions)
-
+    fi
 # }}} /fpath
 # {{{ path
 
-  path=(/usr/local/perlbrew/perls/current/bin
-        /xbin/bin \
-        /usr/bin \
-        /usr/local/bin \
-        /usr/local/texlive/2009/bin/universal-darwin \
-        /opt/subversion/bin \
-        /Developer/usr/bin \
-        $path )
+    if [[ $systype == "Darwin" ]]; then
+      path=(/usr/local/perlbrew/perls/current/bin
+            /xbin/bin \
+            /usr/bin \
+            /usr/local/bin \
+            /usr/local/texlive/2009/bin/universal-darwin \
+            /opt/subversion/bin \
+            /Developer/usr/bin \
+            $path ) 
+    elif [[ $systype == "Linux" ]]; then
+      path=($HOME/bin \
+            /usr/bin \
+            /usr/local/bin \
+            $path )
+    else
+
+    fi    
 
 # }}} /path
 # {{{ manpath
 
-  manpath=($manpath \
-           /usr/share/man \
-           /usr/local/share/man \
-           /opt/local/share/man )
-  export MANSECT=3:2:9:8:1:5:4:7:6:n
+    if [[ $systype == "Darwin" ]]; then
+      manpath=($manpath \
+               /usr/share/man \
+               /usr/local/share/man \
+               /opt/local/share/man )
+    elif [[ $systype == "Linux" ]]; then
+      manpath=($manpath \
+               $HOME/share/man \
+               /usr/share/man \
+               /usr/local/share/man )
+    else
+
+    fi    
+  
+    export MANSECT=3:2:9:8:1:5:4:7:6:n
 
 # }}} /manpath
 

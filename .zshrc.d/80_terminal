@@ -10,14 +10,14 @@ case "$TERM" in
     bindkey "\e[4~" end-of-line		# End
     bindkey '\e[3~' delete-char		# Del
     bindkey '\e[2~' overwrite-mode	# Insert
-    alias vim='/usr/local/bin/vim -X'
+    # alias vim='/usr/local/bin/vim -X'
     ;;
 
 
   rxvt*)
     bindkey '\e[7~' beginning-of-line	# home
     bindkey '\e[8~' end-of-line		# end
-    alias vim='/usr/local/bin/vim'
+    # alias vim='/usr/local/bin/vim'
 
 
     xset r rate 300 50
