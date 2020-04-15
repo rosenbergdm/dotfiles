@@ -1,0 +1,29 @@
+backup_my_passwords() {
+    startdir="$PWD"
+    pushd "$HOME/dropbox"
+    tgtfile="./passwords-backup/passwords-$(date +%Y%m%d).kdbx"
+    if [[ -f "$tgtfile"  ]]; then
+        echo "FILE ALREADY EXISTS"
+    else
+        cp "./passwords.kdbx" "$tgtfile"
+        echo "FILE COPY COMPLETE"
+    fi
+    popd
+}
+
+
+set_python_2() {
+    export PYTHONPATH=/usr/local/lib/python2.7/site-packages:~/Library/Python/2.7/lib/python/site-packages
+    alias ipython="$(which ipython2)"
+    alias python="$(which python2.7)"
+    alias pip="$(which pip2.7)"
+}
+
+set_python_3() {
+    unset PYTHONPATH
+    alias ipython="$(which ipython3)"
+    alias python="$(which python3)"
+    alias pip="$(which pip3)"
+}
+
+# vim: ft=sh
